@@ -1,13 +1,15 @@
 package com.springosyrs.spring5recipeapp.domain;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
-@EqualsAndHashCode(exclude = {"recipe"})
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = {"recipe", "recipeNotes"})
 public class Notes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
