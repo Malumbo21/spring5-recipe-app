@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Recipe Home</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/dist/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="/webjars/bootstrap/3.3.7/dist/css/bootstrap-theme.min.css">
+	<script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="/webjars/bootstrap/3.3.7/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--/*@thymesVar id="recipe" type="com.springosyrs.spring5recipeapp.domain.Recipe"*/-->
+<!--/*@thymesVar id="category" type="com.springosyrs.spring5recipeapp.domain.Category"*/-->
+<div class="container-fluid my-3">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel-group">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here</h1>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3">
+								<h5>Categories: </h5>
+							</div>
+							<div class="col-md-9">
+								<ul>
+									<li th:each="category : ${recipe.categories}"
+									    th:text="${category.getDescription()}">Cat 3
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<h5>Prep Time: </h5>
+							</div>
+							<div class="col-md-3">
+								<p th:text="${recipe.prepTime}">30 min </p>
+							</div>
+							<div class="col-md-3">
+								<h5>Difficulty: </h5>
+							</div>
+							<div class="col-md-3">
+								<p th:text="${recipe.difficulty}">Easy </p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<h5>Cooktime: </h5>
+							</div>
+							<div class="col-md-3">
+								<p th:text="${recipe.cookTime}">30 min </p>
+							</div>
+							<div class="col-md-3">
+								<h5>Servings: </h5>
+							</div>
+							<div class="col-md-3">
+								<p th:text="${recipe.servings}">4</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<h5>Source: </h5>
+							</div>
+							<div class="col-md-3">
+								<p th:text="${recipe.source}">30 min </p>
+							</div>
+							<div class="col-md-3">
+								<h5>URL: </h5>
+							</div>
+							<div class="col-md-3">
+								<p th:text="${recipe.url}">https://www.example.com</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title">Ingredients</h1>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<ul>
+								<li th:remove="all">1 cup of milk</li>
+								<li th:remove="all">1 Teaspoon of chocolate</li>
+								<li th:each="ingredient : ${recipe.ingredients}"
+								    th:text="${ingredient.getDescription()}">1 Teaspoon of sugar
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title">Directions</h1>
+					</div>
+					<div class="panel-body">
+						<p th:text="${recipe.directions}">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							Deserunt eaque ipsum nostrum quidem voluptates? A assumenda autem deserunt, hic id nihil,
+							numquam provident quis sed soluta veniam vitae voluptatibus voluptatum?</p>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title">Notes</h1>
+					</div>
+					<div class="panel-body">
+						<p th:text="${recipe.notes.getRecipeNotes()}">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Deserunt eaque ipsum nostrum quidem voluptates? A assumenda autem
+							deserunt, hic id nihil, numquam provident quis sed soluta veniam vitae voluptatibus
+							voluptatum?</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
