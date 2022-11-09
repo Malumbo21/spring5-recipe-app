@@ -1,7 +1,7 @@
 package com.springosyrs.spring5recipeapp.controllers;
 
 import com.springosyrs.spring5recipeapp.domain.Recipe;
-import com.springosyrs.spring5recipeapp.services.RecipeServiceImpl;
+import com.springosyrs.spring5recipeapp.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class IndexControllerTest {
     @Mock
-    RecipeServiceImpl recipeService;
+    RecipeService recipeService;
     @Mock
     Model model;
     IndexController controller;

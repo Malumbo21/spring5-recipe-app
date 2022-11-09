@@ -5,5 +5,7 @@ spring:
     username: sa
   jpa:
     defer-datasource-initialization: true
-
+logging:
+  level:
+    com.springosyrs.spring5recipea: debug
 

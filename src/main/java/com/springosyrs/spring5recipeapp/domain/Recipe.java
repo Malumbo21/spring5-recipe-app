@@ -1,13 +1,15 @@
 package com.springosyrs.spring5recipeapp.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +39,8 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
-        this.notes.setRecipe(this);
+        if (notes != null)
+            this.notes.setRecipe(this);
     }
     public Recipe addIngredient(Ingredient ingredient) {
         ingredient.setRecipe(this);
